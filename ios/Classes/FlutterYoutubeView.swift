@@ -219,7 +219,6 @@ let htmlString: String? =
         </body>
         </html>
         """
-        
         self.player.loadPlayerHTML(htmlString!)
 
     private func changeScaleMode(scaleMode: Int) {
