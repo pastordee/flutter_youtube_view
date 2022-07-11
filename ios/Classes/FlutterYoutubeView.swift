@@ -166,7 +166,7 @@ class FlutterYoutubeView: NSObject, FlutterPlatformView {
             self.player.fillToSuperview()
         }
         self.player.delegate = self
-        // self.player.loadPlayer()
+        self.player.loadPlayerHTML(htmlString!)
     }
     
 let htmlString: String? =
@@ -219,7 +219,7 @@ let htmlString: String? =
         </body>
         </html>
         """
-        self.player.loadPlayerHTML(htmlString!)
+//         self.player.loadPlayerHTML(htmlString!)
 
     private func changeScaleMode(scaleMode: Int) {
         self.player.removeAllAutoLayout()
