@@ -27,14 +27,14 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 21
-        compileSdkVersion 31
+        minSdkVersion 28
+        compileSdkVersion 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {

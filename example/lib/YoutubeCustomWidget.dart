@@ -12,7 +12,7 @@ class _MyAppState extends State<YoutubeCustomWidget>
   double _videoDuration = 0.0;
   double _currentVideoSecond = 0.0;
   String _playerState = "";
-  FlutterYoutubeViewController _controller;
+  late FlutterYoutubeViewController _controller;
   YoutubeScaleMode _mode = YoutubeScaleMode.none;
   PlaybackRate _playbackRate = PlaybackRate.RATE_1;
   bool _isMuted = false;
@@ -70,16 +70,16 @@ class _MyAppState extends State<YoutubeCustomWidget>
     _controller.setVolume(volumePercent);
   }
 
-  void _changeScaleMode(YoutubeScaleMode mode) {
+  void _changeScaleMode(YoutubeScaleMode? mode) {
     setState(() {
-        _mode = mode;
+        _mode = mode!;
         _controller.changeScaleMode(mode);
     });
   }
 
-  void _changeVolumeMode(bool isMuted) {
+  void _changeVolumeMode(bool? isMuted) {
     setState(() {
-      _isMuted = isMuted;
+      _isMuted = isMuted!;
       if (isMuted) {
         _controller.setMute();
       } else {
@@ -88,9 +88,9 @@ class _MyAppState extends State<YoutubeCustomWidget>
     });
   }
 
-  void _changePlaybackRate(PlaybackRate playbackRate) {
+  void _changePlaybackRate(PlaybackRate? playbackRate) {
     setState(() {
-      _playbackRate = playbackRate;
+      _playbackRate = playbackRate!;
       _controller.setPlaybackRate(rate: playbackRate);
     });
   }
@@ -121,7 +121,7 @@ class _MyAppState extends State<YoutubeCustomWidget>
                   'Current state: $_playerState',
                   style: TextStyle(color: Colors.blue),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: _loadOrCueVideo,
                   child: Text('Click reload video'),
                 ),
@@ -139,15 +139,15 @@ class _MyAppState extends State<YoutubeCustomWidget>
     return new Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        RaisedButton(
+        ElevatedButton(
           onPressed: _play,
           child: Text('Play'),
         ),
-        RaisedButton(
+        ElevatedButton(
           onPressed: _pause,
           child: Text('Pause'),
         ),
-        RaisedButton(
+        ElevatedButton(
           onPressed: () {
             _seekTo(20.0);
           },

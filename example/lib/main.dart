@@ -24,13 +24,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Youtube player')),
       body: Center(
         child: Column(children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushNamed('/custom');
             },
             child: Text('Open customize player'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushNamed('/non_custom');
             },
